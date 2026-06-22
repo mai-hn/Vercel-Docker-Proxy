@@ -2,7 +2,7 @@
 const https = require('https');
 const zlib = require('zlib');
 
-let hub_host = 'registry-1.docker.io';
+const dockerHubHost = 'registry-1.docker.io';
 const auth_url = 'https://auth.docker.io';
 let 屏蔽爬虫UA = ['netcraft'];
 
@@ -14,7 +14,7 @@ function routeByHosts(host) {
 		"test": "registry-1.docker.io",
 	};
 	if (host in routes) return [routes[host], false];
-	else return [hub_host, true];
+	else return [dockerHubHost, true];
 }
 
 async function ADD(envadd) {
@@ -26,6 +26,7 @@ async function ADD(envadd) {
 
 module.exports = async (req, res) => {
 	try {
+		let hub_host = dockerHubHost;
 		const env = process.env;
 		const url = new URL(req.url, `https://${req.headers.host}`);
 		const userAgent = (req.headers['user-agent'] || '').toLowerCase();

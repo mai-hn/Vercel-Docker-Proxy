@@ -8,7 +8,7 @@ Deploy `mai-hn/Vercel-Docker-Proxy` as one Vercel project and expose the support
 
 One Vercel production deployment receives all registry traffic. The existing `api/proxy.js` function selects its upstream from the left-most hostname label, so the required domain order is `<registry>.proxy.xecho.me`.
 
-Cloudflare is authoritative DNS for `xecho.me`. Each hostname is added to the Vercel project and receives a DNS-only CNAME to Vercel's assigned verification target. DNS-only mode preserves Docker client compatibility and allows Vercel to provision and renew TLS certificates.
+Cloudflare is authoritative DNS for `xecho.me`. Each hostname is added to the Vercel project and receives Vercel's required DNS-only A record (`76.76.21.21`). DNS-only mode preserves Docker client compatibility and allows Vercel to provision and renew TLS certificates.
 
 ## Hostname routing
 
@@ -26,7 +26,7 @@ Cloudflare is authoritative DNS for `xecho.me`. Each hostname is added to the Ve
 
 1. Deploy the repository as a new production Vercel project in `zAura's projects`.
 2. Attach all seven custom domains to that project and retrieve Vercel's required DNS target for each.
-3. Create or update the corresponding Cloudflare CNAME records as DNS-only records.
+3. Create or update the corresponding Cloudflare DNS-only A records to `76.76.21.21`.
 4. Wait for Vercel domain verification and TLS issuance.
 5. Verify each hostname reaches the expected registry through `GET /v2/`; verify Docker Hub's authentication challenge points back to `docker.proxy.xecho.me`.
 

@@ -4,7 +4,7 @@
 
 **Goal:** Deploy one production Vercel proxy for seven registry hostnames under `proxy.xecho.me` and verify their routing.
 
-**Architecture:** The existing Vercel Serverless Function resolves registry type from the left-most hostname label. One Vercel project therefore serves the seven explicit hostnames named in Task 2. Cloudflare DNS-only CNAME records delegate TLS and request handling to Vercel.
+**Architecture:** The existing Vercel Serverless Function resolves registry type from the left-most hostname label. One Vercel project therefore serves the seven explicit hostnames named in Task 2. Cloudflare DNS-only A records delegate TLS and request handling to Vercel.
 
 **Tech Stack:** Vercel Serverless Functions, Vercel Domains API/CLI, Cloudflare DNS API, Docker Registry HTTP API v2.
 
@@ -47,11 +47,11 @@ Add exactly these domains: `docker.proxy.xecho.me`, `gcr.proxy.xecho.me`, `k8s.p
 
 Expected: Vercel returns its required DNS target or validates each domain as configured.
 
-- [ ] **Step 2: Create DNS-only CNAME records in Cloudflare**
+- [ ] **Step 2: Create DNS-only A records in Cloudflare**
 
-For each Vercel custom domain, create or update its CNAME record to the Vercel-assigned target with `proxied: false` and automatic TTL.
+For each Vercel custom domain, create or update its A record to `76.76.21.21` with `proxied: false` and automatic TTL.
 
-Expected: Cloudflare has seven independently managed DNS-only CNAME records; no wildcard record is created.
+Expected: Cloudflare has seven independently managed DNS-only A records; no wildcard record is created.
 
 - [ ] **Step 3: Wait for domain validation and certificate issuance**
 
