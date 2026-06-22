@@ -1,0 +1,19 @@
+{
+  "name": "vercel-docker-proxy",
+  "version": "1.0.0",
+  "description": "Docker registry proxy using Vercel Serverless Functions",
+  "main": "api/proxy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "docker",
+    "proxy",
+    "vercel"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
