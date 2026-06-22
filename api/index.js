@@ -88,6 +88,10 @@ async function nginx() {
 	<a href="http://nginx.com/">nginx.com</a>.</p>
 	
 	<p><em>Thank you for using nginx.</em></p>
+	<script>
+		window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+	</script>
+	<script defer src="/_vercel/insights/script.js"></script>
 	</body>
 	</html>
 	`
@@ -404,6 +408,10 @@ async function searchInterface() {
 			document.getElementById('search-input').focus();
 		});
 		</script>
+		<script>
+			window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+		</script>
+		<script defer src="/_vercel/insights/script.js"></script>
 	</body>
 	</html>
 	`;
