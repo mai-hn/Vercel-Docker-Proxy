@@ -88,6 +88,10 @@ async function nginx() {
 	<a href="http://nginx.com/">nginx.com</a>.</p>
 	
 	<p><em>Thank you for using nginx.</em></p>
+	<script>
+	window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+	</script>
+	<script defer src="/_vercel/speed-insights/script.js"></script>
 	</body>
 	</html>
 	`
@@ -404,6 +408,10 @@ async function searchInterface() {
 			document.getElementById('search-input').focus();
 		});
 		</script>
+		<script>
+		window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+		</script>
+		<script defer src="/_vercel/speed-insights/script.js"></script>
 	</body>
 	</html>
 	`;
@@ -533,7 +541,7 @@ export default async function handler(request) {
             || url.pathname.endsWith('/tags/list')
         )
     ) {
-        // 提取镜像名
+        // 提��镜像名
         let repo = '';
         const v2Match = url.pathname.match(/^\/v2\/(.+?)(?:\/(manifests|blobs|tags)\/)/);
         if (v2Match) {
